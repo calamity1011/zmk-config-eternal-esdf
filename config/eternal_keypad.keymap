@@ -11,8 +11,9 @@
 #include <dt-bindings/zmk/rgb.h>
 
 #define BASE        0
-#define ARROW       1
-#define FUNC        2
+#define QWERTY      1
+#define ARROW       2
+#define FUNC        3
 
 / {
   chosen {
@@ -25,31 +26,41 @@
 
     default_layer {
       bindings = <
-                    &kp ESC   &kp N1    &kp N2   &kp N3    &kp N4    &kp N5  &kp N6
-                    &kp TAB   &kp Q     &kp W    &kp E     &kp R     &kp T   &kp N7
-        &kp F13     &kp ENTER &kp A     &kp S    &kp D     &kp F     &kp G   &kp N8
-        &kp F14     &kp LSHFT &kp Z     &kp X    &kp C     &kp V     &kp B   &kp N9
-        &kp F15     &kp LCTRL &sl FUNC  &kp LALT           &kp SPACE         &lt ARROW N0
+                    &kp ESC   &kp N1    &kp N2    &kp N3  &kp N4     &kp N5  &kp N6
+                    &kp TAB   &kp T     &kp Q     &kp W   &kp E      &kp R   &kp N7
+        &kp F13     &kp ENTER &kp G     &kp A     &kp S   &kp D      &kp F   &kp N8
+        &kp F14     &kp LSHFT &kp Z     &kp X     &kp C   &kp V      &kp B   &kp N9
+        &kp F15     &kp LCTRL &sl FUNC  &kp LALT          &kp SPACE          &lt ARROW N0
+      >;
+    };
+
+    qwerty_layer {
+      bindings = <
+                    &kp ESC    &kp N1    &kp N2    &kp N3    &kp N4     &kp N5  &kp N6
+                    &kp TAB    &kp Q     &kp W     &kp E     &kp R      &kp T   &kp N7
+        &kp F13     &kp ENTER  &kp A     &kp S     &kp D     &kp F      &kp G   &kp N8
+        &kp F14     &kp LSHFT  &kp Z     &kp X     &kp C     &kp V      &kp B   &kp N9
+        &kp F15     &kp LCTRL  &sl FUNC  &kp LALT            &kp SPACE          &lt ARROW N0
       >;
     };
 
     arrow_layer {
       bindings = <
-                    &bt BT_SEL 0 &bt BT_SEL 1 &trans     &trans    &trans           &out OUT_USB     &out OUT_BLE
-                    &trans       &trans       &kp UP     &trans    &rgb_ug RGB_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_HUD
-        &bt BT_CLR  &trans       &kp LEFT     &kp DOWN   &kp RIGHT &trans           &rgb_ug RGB_BRI  &rgb_ug RGB_BRD
-        &sys_reset      &trans       &trans       &trans     &trans    &trans           &rgb_ug RGB_EFF  &rgb_ug RGB_EFR
-        &bootloader &trans       &trans       &trans               &trans                            &trans
+                    &trans       &trans       &trans    &trans     &trans  &trans  &trans
+                    &trans       &trans       &trans    &trans     &trans  &trans  &trans
+        &trans      &kp LEFT     &kp DOWN     &kb UP    &kp RIGHT  &trans  &trans  &trans
+        &trans      &trans       &trans       &trans    &trans     &trans  &trans  &trans
+        &trans      &trans       &trans       &trans               &trans          &trans
       >;
     };
 
     function_layer {
       bindings = <
-                    &trans    &kp F1    &kp F2   &kp F3    &kp F4   &kp F5   &kp F6
-                    &trans    &kp P     &kp O    &kp I     &kp U    &kp Y    &kp F7
-        &bt BT_CLR  &kp BSPC  &kp SEMI  &kp L    &kp K     &kp J    &kp H    &kp F8
-        &sys_reset      &trans    &kp LGUI  &kp M    &kp N     &kp F12  &kp F11  &kp F9
-        &bootloader &trans    &trans    &trans             &trans            &kp F10
+                      &bootloader  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2    &bt BT_SEL 3   &bt BT_SEL 4   &trans
+                      &trans       &trans         &trans         &trans          &trans         &trans         &trans
+        &bt BT_CLR    &trans       &trans         &trans         &trans          &trans         &trans         &trans
+        &out OUT_USB  &trans       &trans         &trans         &trans          &trans         &trans         &trans
+        &out OUT_BLE  &trans       &trans         &trans                         &trans                        &trans
       >;
     };
   };
